@@ -1,0 +1,18 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Resultados de la Búsqueda{% endblock %}
+
+{% block content %}
+    <h2>Resultados de la Búsqueda</h2>
+    {% if results %}
+        <ul>
+            {% for product in results %}
+                <li>{{ product.name }} - {{ product.price }} USD</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+    {% endif %}
+    <a href="{% url 'search_product' %}">Buscar de nuevo</a>
+    <a href="{% url 'home' %}">Volver al inicio</a>
+{% endblock %}
